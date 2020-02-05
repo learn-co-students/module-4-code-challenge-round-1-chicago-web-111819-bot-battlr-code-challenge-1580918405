@@ -1,16 +1,16 @@
 import React from "react";
-import BotCard from "../components/BotCard";
+import BotArmyCard from "../components/BotArmyCard";
 
 class YourBotArmy extends React.Component {
-  //your bot army code here...
-
-  render(){
+  render() {
     return (
       <div className="ui segment inverted olive bot-army">
         <div className="ui five column grid">
           <div className="row bot-army-row">
-            {/*...and here...*/}
             Your Bot Army
+					{this.props.bots.map((bot, i) => {
+						return <BotArmyCard bot={bot} key={i} handleArmyBotClick={() => this.props.handleArmyBotClick(bot)} />
+					})}
           </div>
         </div>
       </div>
