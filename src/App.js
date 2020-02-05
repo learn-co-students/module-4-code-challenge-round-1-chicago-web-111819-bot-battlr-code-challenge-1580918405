@@ -25,15 +25,18 @@ class App extends Component {
 			})
 	}
 
-	botColletionFilteredObjs = () => {
-		return this.state.robots.filter(robot => robot.isEnlisted === false)
-	}
 
 	yourBotArmyFilteredObjs = () => {
 		return this.state.robots.filter(robot => robot.isEnlisted)
 	}
 
 	toggleEnlistedStatus = (id) => {
+		const yourBotArmySize = this.yourBotArmyFilteredObjs()
+		if (yourBotArmySize.length >= 5) {
+			alert('5 robots max in your army')
+			return
+		}
+
 		let robotToUpdate = this.state.robots.find(robot => robot.id === id)
 
 		const updatedRobotObjs = this.state.robots.map(robot => {
@@ -53,9 +56,9 @@ class App extends Component {
 		return (
 			<div className="App">
 				<BotsPage 
-					botColletionFilteredObjs={this.botColletionFilteredObjs()} 
-					yourBotArmyFilteredObjs={this.yourBotArmyFilteredObjs()} 
+					robots={this.state.robots}
 					toggleEnlistedStatus={this.toggleEnlistedStatus}
+					yourBotArmyFilteredObjs={this.yourBotArmyFilteredObjs()}
 				/>
 			</div>
 		);

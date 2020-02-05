@@ -10,6 +10,7 @@ class YourBotArmy extends React.Component {
         key={robotObj.id} 
         robotObj={robotObj} 
         toggleEnlistedStatus={this.props.toggleEnlistedStatus}
+        togglePageView={this.props.togglePageView}
         />
 	  })
   }

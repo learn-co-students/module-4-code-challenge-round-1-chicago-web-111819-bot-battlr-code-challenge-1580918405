@@ -8,7 +8,8 @@ class BotCollection extends React.Component {
 			return < BotCard 
 			key={robotObj.id} 
 			robotObj={robotObj} 
-			toggleEnlistedStatus={this.props.toggleEnlistedStatus}
+			toggleEnlistedStatus={this.props.toggleEnlistedStatus} 
+			togglePageView={this.props.togglePageView}
 			/>
 	  })
 	}
