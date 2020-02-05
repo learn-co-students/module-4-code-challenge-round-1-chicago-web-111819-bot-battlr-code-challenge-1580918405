@@ -1,8 +1,8 @@
 import React from "react";
 
+
 const BotCard = props => {
   const { bot } = props;
-
   let botType;
 
   switch (bot.bot_class) {
@@ -19,12 +19,17 @@ const BotCard = props => {
       botType = <div />;
   }
 
+  let enlistBot = (botObj) => {
+    let newBot = {...botObj, enlisted: !botObj.enlisted}
+    return newBot
+  }
+
   return (
-    <div className="ui column">
+    <div className="ui column" onClick= {(props.type === 'army') ? () => props.toggleEnlist(enlistBot(bot)) : () =>  props.toggleShowBot(bot) }>
       <div
         className="ui card"
         key={bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        // onClick={() => console.log("dont worry about me")}
       >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
