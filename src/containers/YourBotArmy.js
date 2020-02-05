@@ -11,6 +11,7 @@ class YourBotArmy extends React.Component {
           <div className="row bot-army-row">
             {/*...and here...*/}
             Your Bot Army
+            <BotCard bot={this.props.bot}/>
           </div>
         </div>
       </div>
